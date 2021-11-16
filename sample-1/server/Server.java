@@ -17,7 +17,7 @@ public class Server {
             while (!clientMessage.equals("bye")) {
                 clientMessage = inStream.readUTF();
                 System.out.println("From Client: " + clientMessage);
-                serverMessage = reader.readLine();
+                serverMessage = "Received " + clientMessage;
                 outStream.writeUTF(serverMessage);
                 outStream.flush();
             }
