@@ -35,7 +35,7 @@ public class BankingApp {
                     throw new Exception("Insufficient funds!");
                 }
 
-                account.setBalance(account.getBalance() - withdrawalAmount);
+                account.withdraw(withdrawalAmount);
                 System.out.println("New account balance is : " + account.getBalance());
             }
         } catch (Exception e) {

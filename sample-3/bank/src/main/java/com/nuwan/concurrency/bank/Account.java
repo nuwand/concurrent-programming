@@ -15,8 +15,8 @@ public class Account {
         return balance;
     }
 
-    public void setBalance(int balance) {
-        this.balance = balance;
+    public void withdraw(int amount) {
+        this.balance = balance - amount;
     }
 
     public boolean canWithdraw(int amount) {
