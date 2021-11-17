@@ -44,4 +44,22 @@ public class BankingApp {
 
     }
 
+    private void transfer(Account from, Account to, int amount) throws Exception {
+
+        Account first = (from.rank > to.rank)? from : to;
+        Account second = (from.rank > to.rank)? to : from;
+
+        synchronized (first) {
+            synchronized (second) {
+                if(from.getBalance() > amount) {
+                    from.withdraw(amount);
+                    to.deposit(amount);
+                }
+                else {
+                    throw new Exception("Insufficient Funds");
+                }
+            }
+        }
+    }
+
 }

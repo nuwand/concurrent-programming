@@ -3,12 +3,15 @@ package com.nuwan.concurrency.bank;
 public class Account {
 
     String accountId;
-
     int balance;
+    static int count;
+    int rank;
 
     public Account(String accountId, int balance) {
         this.accountId = accountId;
         this.balance = balance;
+        count++;
+        rank = count;
     }
 
     public int getBalance() {
@@ -21,6 +24,10 @@ public class Account {
 
     public boolean canWithdraw(int amount) {
         return balance - amount > 0;
+    }
+
+    public void deposit(int amount) {
+        balance += amount;
     }
 
 }
